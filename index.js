@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const projectRoutes = require("./routes/projectRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+const testimonialRoutes = require("./routes/testimonialRoutes");
 
 const app = express();
-const path = require("path")
 
 app.use(cors());
 app.use(express.json());
@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 
 app.use('/projects', projectRoutes);
 app.use('/contact', contactRoutes);
+app.use('/testimonials', testimonialRoutes);
 
 
 const PORT = process.env.PORT || 6900;

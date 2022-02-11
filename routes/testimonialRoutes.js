@@ -1,9 +1,8 @@
-const { Router } = require('express');
 const express = require('express');
-const router = express.Router();
+const app = express.Router();
 
 let testimonials =[{
-
+    id: "1",
     img: "https://i.postimg.cc/j2X3KNR7/Seth3.jpg",
     name: "Seth",
     occupation: "Aspiring Front-end Developer",
@@ -11,6 +10,7 @@ let testimonials =[{
     link: "https://www.linkedin.com/in/webdevseth/",
 },
 {
+    id:"2",
     img: "https://i.postimg.cc/t4VJMzq7/Bulela.jpg",
     name: "Bulela Gomoshe",
     occupation: "Aspiring Back-end Developer",
@@ -18,6 +18,7 @@ let testimonials =[{
     link: "https://www.linkedin.com/in/bulelag/",
 },
 {
+    id:"3",
     img: "https://i.postimg.cc/nL4v6xFs/seko.jpg",
     name: "Seko Mpofu",
     occupation: "Aspiring front-end developer",
@@ -25,6 +26,7 @@ let testimonials =[{
     link: "https://www.linkedin.com/in/nomvuyiseko-mpofu-0a782b117/",
 },
 {
+    id: "4",
     img: "https://i.postimg.cc/KcwyHhRr/Jude3.jpg",
     name: "Jude Julius",
     occupation: "Full-stack developer",
@@ -32,6 +34,7 @@ let testimonials =[{
     link: "https://www.linkedin.com/in/jude-julius-a56299212/",
 },
 {
+    id: "5",
     img: "https://i.postimg.cc/d1Xt67bG/Kagiso.jpg",
     name: "Kagiso Mphayi",
     occupation: "Full-stack Developer",
@@ -39,6 +42,7 @@ let testimonials =[{
     link: "https://www.linkedin.com/in/kagiso-kagiso-5aab71219/",
 },
 {
+    id: "6",
     img: "https://i.postimg.cc/YqRzSMYQ/Godwin.jpg",
     name: "Godwin Dzvapatsva",
     occupation: "Lecture",
@@ -47,23 +51,73 @@ let testimonials =[{
 },
 ];
 
+function fixArrayID(arr) {
+    return arr.forEach((item, index) => (item.id = index + 1));
+}
 
 //CREATE
-app.post('/', (req,res) => {})
+app.post('/', (req,res) => {
 
-//READ
+    const { img, name, occupation, desc, link} = req.body;
+
+    if(!img || !name || !occupation || !desc || !link) {
+        res.status(404).send({msg: "Not all data sent"});
+    }
+
+    const testimonial = {
+        id: testimonials.length + 1,
+        img,
+        name,
+        occupation,
+        desc,
+        link,
+    };
+    
+    testimonials.push(testimonial);
+    res.send(testimonial);
+});
+
+
 app.get('/', (req, res) => {
-
     res.send(testimonials);
 });
 
-app.get('/:id', (req, res) => {})
+app.get('/:id', (req, res) => {
+
+    const testimonial = testimonials.find(testimonial => testimonial.id == req.params.id)
+
+    if(!testimonial) res.status(404).send({msg: "testimonial not found"});
+
+    res.send(testimonial)
+});
 
 //UPDATE
-router.put('/:id', (req, res) => {})
+app.put('/:id', (req, res) => {
+
+    const { img, name, occupation, desc, link } = req.body;
+    const testimonial = testimonials.find(testimonial => testimonial.id == req.params.id)
+
+    if(!testimonial) res.status(404).send({msg: "Testimonial not found" });
+
+    if(img) testimonial.img = img;
+    if(name) project.name = name;
+    if(occupation) project.occupation = occupation;
+    if(desc) project.desc = desc;
+    if(link) project.link = link;
+
+    res.send(testimonial)
+
+})
 
 //DELETE
-Router.delete("/:id", (req, res) => {})
+app.delete("/:id", (req, res) => {
+
+    testimonial = testimonials.filter((testimonial) => testimonial.id != req.params.id);
+
+    fixArrayID(testimonials);
+    
+    res.send({msg: "Testimonial deleted" }); 
+})
 
 
 module.exports = app;
