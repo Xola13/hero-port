@@ -44,7 +44,7 @@ let testimonials =[{
 {
     id: "6",
     img: "https://i.postimg.cc/YqRzSMYQ/Godwin.jpg",
-    name: "Godwin Dzvapatsva",
+    name: "Godwin",
     occupation: "Lecture",
     desc: "Xola is a very consistent student. . He grasps new concepts quickly and accepts constructive criticism and instruction concerning his projects. -Godwin Dzvapatsva-Head of Curriculum and Learning",
     link: "https://www.linkedin.com/in/gpdzvapatsva/",

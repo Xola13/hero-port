@@ -54,7 +54,7 @@ let projects =[
         techStack: "HTML, CSS",
         github: "https://github.com/Xola13/calculator.git",
         live: "https://xola-calculator.netlify.app",
-        image: "https://i.postimg.cc/GmjhQDtT/mini-page.png",
+        image: "https://i.postimg.cc/tJDCbrmj/landing.png",
         
     },
 ];
