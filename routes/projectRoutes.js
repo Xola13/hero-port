@@ -15,7 +15,7 @@ let projects =[
         id: "2",
         title: "Tourist Cards",
         techStack: "HTML, CSS",
-        Github: "https://github.com/Xola13/css.05-10-21.git",
+        github: "https://github.com/Xola13/css.05-10-21.git",
         live: "https://tourist-cards.netlify.app",
         image: "https://i.postimg.cc/mDtF1mfm/cards.png",
         
