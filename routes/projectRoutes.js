@@ -50,11 +50,11 @@ let projects =[
     },
     {
         id: "6",
-        title: "Landing page",
-        techStack: "HTML, CSS",
-        github: "https://github.com/Xola13/calculator.git",
-        live: "https://xola-calculator.netlify.app",
-        image: "https://i.postimg.cc/tJDCbrmj/landing.png",
+        title: "Crude operation",
+        techStack: "Javascript",
+        github: "https://github.com/Xola13/CRUD-Operation.git",
+        live: "https://operation.netlify.app",
+        image: "https://i.postimg.cc/zGx8rnMy/Crude.png",
         
     },
 ];
